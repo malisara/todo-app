@@ -39,23 +39,27 @@ input {
   width: 90%;
 }
 
-
 input:focus {
   border-color: #5f5f5f;
 }
 
-.addTaskButton {
+#addTaskButton,
+#deleteTasksButton {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 5px;
   padding: 0.5rem 1rem;
   color: white;
   background-color: rgba(100, 145, 115, 0.6);
+}
+
+#addTaskButton {
   font-weight: bold;
   margin-left: 0.5rem;
   font-size: 1.2rem;
 }
 
-.addTaskButton:hover {
+#addTaskButton:hover,
+#deleteTasksButton:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -74,4 +78,30 @@ input:focus {
 .crossedOver {
   text-decoration: line-through;
   color: #5f5f5f
+}
+
+@media only screen and (max-width: 500px) {
+  .app {
+    width: 15rem;
+  }
+
+  input {
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .app {
+    width: 25rem;
+  }
+
+  input {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .app {
+    width: 35rem;
+  }
 }

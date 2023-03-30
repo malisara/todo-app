@@ -1,5 +1,6 @@
 import TodoList from './TodoList';
 import React, { useState, useEffect } from 'react';
+
 import { v4 as uuidv4 } from 'uuid';
 
 const LSKEY = 'localStorageKey';
@@ -30,17 +31,19 @@ function App() {
     setTodos([...todos]);
   }
 
+
   return (
     <div className='app'>
 
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Enter a new task" name="inputText" />
-        <button className='addTaskButton'>+</button>
+        <button id='addTaskButton'>+</button>
       </form>
 
-      <button>delete completed tasks</button>
+      <button id='deleteTasksButton' onClick={() => setTodos(todos.filter(todo => !todo.completed))}>
+        delete completed tasks</button>
       <TodoList toggleCompletedTask={toggleCompletedTask} todos={todos} />
-    </div>
+    </div >
   );
 }
 
