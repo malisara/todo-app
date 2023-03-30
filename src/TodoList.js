@@ -2,10 +2,11 @@ import React from 'react';
 import Todo from './Todo';
 
 
-export default function TodoList({ todos }) {
+export default function TodoList({ todos, toggleCompletedTask }) {
+    const reversedTodos = todos.slice().reverse();
     return (
-        todos.map(todo => {
-            return <Todo key={todo.id} todo={todo.task} />;
+        reversedTodos.map(todo => {
+            return <Todo toggleCompletedTask={toggleCompletedTask} key={todo.id} todo={todo} />;
         })
     );
 }

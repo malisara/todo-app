@@ -24,16 +24,22 @@ function App() {
     }
   }
 
+  function toggleCompletedTask(id) {
+    const toCrossOver = [...todos].find(todo => todo.id === id);
+    toCrossOver.completed = !toCrossOver.completed;
+    setTodos([...todos]);
+  }
 
   return (
     <div className='app'>
 
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Enter a new task" name="inputText" />
+        <button className='addTaskButton'>+</button>
       </form>
 
       <button>delete completed tasks</button>
-      <TodoList todos={todos} />
+      <TodoList toggleCompletedTask={toggleCompletedTask} todos={todos} />
     </div>
   );
 }
